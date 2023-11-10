@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Dynamic;
+using Microsoft.VisualBasic;
 // unused imports, but can be needed in other machines
 
 using Microsoft.Data.SqlClient;
@@ -10,7 +11,8 @@ class Program
 {
     // Database connection string
     static string connectionString = "Data Source=localhost,51609;Initial Catalog=StudentManagementSystem;Integrated Security=True;Encrypt=False";
-
+    // Main function that serves as the entry point of the program.
+    // It displays a menu of options to the user and performs the corresponding actions based on the user's choice.
     static void Main()
     {
 
@@ -77,8 +79,10 @@ class Program
     }
 
 
-    // create a function to add new student
-
+    // Creates a new student record in the database.
+    // Prompts the user to enter the student's ID, first name, last name, date of birth, and department ID.
+    // Inserts the student record into the 'Student' table in the database.
+    // Returns void.
     static void CreateStudent()
     {
         Console.WriteLine("\nCreating a new student...");
@@ -122,8 +126,7 @@ class Program
     }
 
 
-    // create a function to see all students
-
+    // Shows the list of students by retrieving the student data from the database.
     static void ShowStudents()
     {
         Console.WriteLine("\nReading students...");
@@ -143,7 +146,7 @@ class Program
 
                     Console.WriteLine($"Student ID: {studentID}");
                     Console.WriteLine($"Name: {firstName} {lastName}");
-                    Console.WriteLine($"Date of Birth: {dateOfBirth.ToShortDateString()}");
+                    Console.WriteLine($"Date of Birth: {dateOfBirth:dd-MM-yyyy}"); // Formatting the date
                     Console.WriteLine($"Department ID: {departmentID}");
                     Console.WriteLine("----------------------------");
                 }
@@ -154,10 +157,13 @@ class Program
     }
 
 
-    // //////////////////////////
-    // UPDATE STUDENTS //
-    // //////////////////////////
-
+    // Updates a student's information in the database.
+    // 
+    // Parameters:
+    //   None
+    //
+    // Returns:
+    //   None
     static void UpdateStudent()
     {
         Console.WriteLine("\nUpdating a student...");
@@ -201,11 +207,7 @@ class Program
     }
 
 
-    // //////////////////////////
-    // DELETE STUDENTS //
-    // //////////////////////////
-
-
+    // Deletes a student from the database based on the provided Student ID.
     static void DeleteStudent()
     {
         Console.WriteLine("\nDeleting a student...");
@@ -235,11 +237,8 @@ class Program
         Console.ReadKey();
     }
 
-    //////////////////////////////////////////////////////
-    /// ADD Course///
-    //////////////////////////////////////////////////////
 
-
+    // Adds a course to a student.
     static void AddCourseToStudent()
     {
         Console.WriteLine("\nAdding a course to a student...");
@@ -303,7 +302,13 @@ class Program
     }
 
 
-
+    // Checks if a student with the given student ID exists in the database.
+    // 
+    // Parameters:
+    //   studentID: The ID of the student to check.
+    //
+    // Returns:
+    //   A boolean value indicating whether the student exists or not.
     static bool CheckIfStudentExists(int studentID)
     {
         using (SqlConnection connection = new SqlConnection(connectionString))
@@ -319,6 +324,7 @@ class Program
         }
     }
 
+    // Checks if a course with the given courseID exists in the database.
     static bool CheckIfCourseExists(int courseID)
     {
         using (SqlConnection connection = new SqlConnection(connectionString))
@@ -335,10 +341,8 @@ class Program
     }
 
 
-    // //////////////////////////
-    // STUDENT'S GPA //
-    // //////////////////////////
 
+    // Inserts marks for a student in a course and calculates the GPA.
     static void InsertMarksAndCalculateGPA()
     {
         Console.WriteLine("\nInserting Marks and Calculating GPA...");
@@ -376,6 +380,12 @@ class Program
         Console.ReadKey();
     }
 
+    // CalculateAndSetGPA calculates the GPA for a student in a specific course and updates the Grade field in the Enrollment table accordingly.
+    //
+    // Parameters:
+    //   connection: The SqlConnection object representing the connection to the database.
+    //   studentID: The ID of the student whose GPA is to be calculated.
+    //   courseID: The ID of the course for which the GPA is to be calculated.
     static void CalculateAndSetGPA(SqlConnection connection, int studentID, int courseID)
     {
         using (SqlCommand cmd = new SqlCommand("UPDATE Enrollment SET Grade = " +
@@ -398,7 +408,7 @@ class Program
 
     // write a function to show student information including course and GPA
     // take input of student id to search a singe student in this function
-
+    // Searches for a student based on their ID and displays their information.
     static void SearchStudent()
     {
         Console.WriteLine("Enter Student ID to search for: ");
@@ -485,6 +495,14 @@ class Program
         }
     }
 
+    // InsertNewCourse is a private static void function that inserts a new course into the database.
+    // It prompts the user to enter the course ID, course name, and department ID.
+    // Then, it establishes a connection to the database using the provided connection string.
+    // It creates a new SQL command to insert the course into the "Course" table, with the provided parameters.
+    // It executes the command and checks the number of rows affected.
+    // If the insertion is successful, it prints a success message.
+    // Otherwise, it prints a failure message.
+    // Finally, it prompts the user to press any key to continue.
     private static void InsertNewCourse()
     {
         Console.WriteLine("\nInserting a New Course...");
@@ -521,7 +539,7 @@ class Program
     }
 
 
-
+    // Show the available departments and insert new departments.
     static void ShowAvailableDepartmentsAndInsertNewDepartments()
     {
         Console.WriteLine("Available Departments:");
@@ -562,8 +580,8 @@ class Program
     }
 
 
-    // write a function to to insert new departments and show them
 
+    // Inserts a new department into the database.
     private static void InsertNewDepartment()
     {
         Console.WriteLine("\nInserting a New Department...");
@@ -596,6 +614,6 @@ class Program
         Console.ReadKey();
     }
 
-
-
-}
+    // // //
+}// End of Class "Program"
+ // // //

@@ -1,5 +1,5 @@
 <h1 align="center">Student Management System</h1>
-<h4 align="center">A simple console based DBMS project to handle CRUD operations.</h4>
+<h4 align="center">A simple console based DBMS project to handle <strong>CRUD</strong> operations.</h4>
 
 
 ## About
@@ -41,8 +41,11 @@ Overall, this Student Management System serves as a basic tool for managing stud
 1. Clone the repository
 2. Create Database _or_ Import Database from backup
 3. Open the project in Visual Studio Code
-4. Run the project
+4. Install C# Dev Kit
+5. Run the project
 
+>[!Note]
+>You can also use Visual Studio _or_ your favorite IDE to run this project.
 
 ## Error Handling
 
@@ -51,14 +54,14 @@ Overall, this Student Management System serves as a basic tool for managing stud
 - SQL Server error
   - Check your SQL Server connection.
   - Configure your SQL Server connection.
-    ```cs
+    ```text
     localhost ip-----OR----enable any existing ip from SQL
     Server (2022) Configuration manager\SQL Server Network
     Configuration\protocols For SQLEXPRESS(instance name)\
     TCP/IP\properties\protocol(enabled)\IP Address
     ```
-    ```cs
-    $port = "51609"; // The port, configured in SQL Server Configuration Manager
+    ```text
+    port = "51609"; // The port, configured in SQL Server Configuration Manager
     ```
     _OR_
     Change `connectionString` in `Program.cs` file.  
