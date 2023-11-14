@@ -1,6 +1,12 @@
 # .vscode
 
+# Dependency Files folder...
+# packages
+packages/
+# 
 
 *bin
 *obj
+
+# Temporary files/folders
 *temp*

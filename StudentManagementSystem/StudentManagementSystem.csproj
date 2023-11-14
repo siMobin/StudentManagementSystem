@@ -4,7 +4,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable> <!-- Don't know why this shit isn't working! -->
+    <!-- Dev Dependency??? -->
+    <RestorePackagesPath>..\packages</RestorePackagesPath> <!-- All packages will be restored in project root folder -->
+    <!-- End -->
   </PropertyGroup>
 
   <ItemGroup>

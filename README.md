@@ -49,9 +49,12 @@ Overall, this Student Management System serves as a basic tool for managing stud
 
 ## Error Handling
 
-- Microsoft.Data.SqlClient error  
-  Download Package ` Microsoft.Data.SqlClient` from `https://www.nuget.org/packages/Microsoft.Data.SqlClient` _or_ From `terminal` `dotnet add package Microsoft.Data.SqlClient`
-- SQL Server error
+- Be patient. Wait for all packages to be restored.  
+  All packages will be restored in the project root folder.
+- **Microsoft.Data.SqlClient** _error_  
+  If packages are not restored automatically, then run `dotnet restore` _or_
+  Download the `Microsoft.Data.SqlClient` package from `https://www.nuget.org/packages/Microsoft.Data.SqlClient` _or_ from the `terminal`, run `dotnet add package Microsoft.Data.SqlClient`.
+- **SQL Server** _error_
   - Check your SQL Server connection.
   - Configure your SQL Server connection.
     ```text
