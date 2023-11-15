@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable> <!-- Don't know why this shit isn't working! -->
+    <Nullable>disable</Nullable> <!-- When disabled, the warning "Possible null reference argument for parameter 's' in 'int int.Parse(string s)'" &++ will be ignored. --><!-- Especially for this project, it was the only warning that messed with my head. -->
     <!-- Dev Dependency??? -->
     <RestorePackagesPath>..\packages</RestorePackagesPath> <!-- All packages will be restored in project root folder -->
     <!-- End -->
